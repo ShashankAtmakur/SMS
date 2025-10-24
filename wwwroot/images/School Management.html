@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://demo-sms.codevocado.in/teacher_panel/dashboard.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./School Management_files/boxicons.min.css" rel="stylesheet">
+
+    <title>School Management</title>
+    <link rel="icon" type="image/x-icon" href="./School Management_files/m10.5cb9a12a09dadd737e0a.jpg">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
+
+
+    <link rel="stylesheet" href="./School Management_files/bootstrap.css">
+
+    <link href="./School Management_files/gijgo.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./School Management_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./School Management_files/bootstrap-icons.css">
+    <link href="./School Management_files/font-awesome(1).min.css" rel="stylesheet">
+
+    <link href="./School Management_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./School Management_files/jquery-3.3.1.min.js.download"></script>
+    <script src="./School Management_files/gijgo.min.js.download" type="text/javascript"></script>
+
+    <script src="./School Management_files/html2pdf.bundle.js.download"></script>
+    <link rel="stylesheet" href="./School Management_files/style.css">
+    
+   
+</head>
+<body class="light">
+
+
+ 
+<div class="toast-container position-fixed text-success bottom-0 end-0 p-3" style="z-index: 9000;">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="color:black;">
+    <div class="d-flex">
+      <div class="toast-body" id="toast-alert-message">
+        
+      </div>
+      <button type="button" class="btn-close me-2 m-auto text-danger" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="https://demo-sms.codevocado.in/teacher_panel/dashboard.php" class="logo">
+        <!-- <i class='bx bx-book-bookmark'></i> -->
+        <img src="./School Management_files/m10.5cb9a12a09dadd737e0a.jpg">
+          <div class="logo-name"><span class="text-warning">E</span><span class="darkTextColor">R</span><span class="text-warning">P</span></div>
+    </a>
+    
+    <ul class="side-menu-opener">
+        <!-- <li>
+            <div class='open-arrow SidebarOpener'><i class='bx bxs-chevron-right'></i></div>
+        </li> -->
+    </ul>
+
+    
+    <ul class="side-menu main-side-board">
+        <li class="active"><a href="https://demo-sms.codevocado.in/teacher_panel/dashboard.php"><i class="bx bxs-dashboard"></i>Dashboard</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/student.php"><i class="bx bxs-user-detail"></i>Student</a></li>
+        <!-- <li><a href="subjects.php"><i class='bx bx-book-bookmark'></i>Subjects</a></li> -->
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/attendence.php"><i class="bx bx-list-check"></i>Attendence</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/noticeboard.php"><i class="bx bxs-bookmark"></i>Notice Board</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/timetable.php"><i class="bx bx-table"></i>Time Table</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/syllabus.php"><i class="bx bxs-file-blank"></i>Syllabus</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/notes.php"><i class="bx bx-note"></i>Notes</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/marks.php"><i class="bx bx-paste"></i>Marks</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/leaves.php"><i class="bx bxs-hourglass-top"></i>Leaves</a></li>
+        <li><a href="https://demo-sms.codevocado.in/teacher_panel/settings.php"><i class="bx bx-cog"></i>Settings</a></li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a class="logout" data-bs-toggle="modal" data-bs-target="#logout-modal">
+                <i class="bx bx-log-out-circle"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="logout-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+                <strong>Do you really want to logout?</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="1" id="checkFileName">
+<!-- End of Sidebar -->
+
+
+
+<div class="modal fade" id="reminder-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Reminder</h1>
+                <button type="button" class="close mr-2" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="container mr-3 ml-3">
+                    <div class="alert alert-warning reminder-error" role="alert" style="min-height: 50px;display: none;">
+                    Message can't be empty!
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                        <textarea class="form-control" id="reminder-msg" rows="3"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-center _flex-container" onclick="addReminder()"> <i class="bx bx-plus"></i>&nbsp;<strong>ADD</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Main Content -->
+<div class="content">
+    <!-- Navbar -->
+    <nav>
+            <i class="bx bx-menu SidebarOpener"></i>
+            <form id="unknowingForm">
+                <div class="form-input">
+                    <input type="search" placeholder="Search..." id="topMostSearchBar">
+                    <button class="search-btn" type="button" id="topMostSearchBarBtn"><i class="bx bx-search-alt"></i></button>
+                </div>
+            </form>
+         
+
+            
+           
+
+            <input type="checkbox" id="theme-toggle" hidden="">
+            <label for="theme-toggle" class="theme-toggle" onload="checkAndChangeTheme()"></label>
+
+            <!-- <div class="dropdown dropdown-center">
+                <a href="#" class="notif"  href="#"  data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class='bx bx-bell'></i>
+                    <span class="count">12</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item">Example message</a></li>
+                  <li><a class="dropdown-item">Example message</a></li>
+                  <li><a class="dropdown-item">Example message</a></li>
+                </ul>
+              </div> -->
+
+            <a href="https://demo-sms.codevocado.in/teacher_panel/settings.php" class="profile" id="navbar_profile_pic"><img src="./School Management_files/T17187911911718792416.png"></a>
+
+           
+            <div class="dropdown dropdown-center">
+                <a class=" menu" href="https://demo-sms.codevocado.in/teacher_panel/dashboard.php#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bx bx-dots-vertical-rounded icon-hover-circle"></i>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://demo-sms.codevocado.in/teacher_panel/settings.php">Settings</a></li>
+                  <!-- <li><a class="dropdown-item" href="#"></a></li> -->
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout-modal">Logout</a></li>
+                </ul>
+              </div>
+</nav>
+
+
+    <!-- End of Navbar -->
+
+    <main>
+        <div class="header">
+            <div class="left">
+                <h1>Dashboard</h1>
+                <ul class="breadcrumb">
+                    <li><a href="https://demo-sms.codevocado.in/teacher_panel/dashboard.php#">
+                            Analytics
+                        </a></li>
+
+                </ul>
+            </div>
+            <!-- <a href="#" class="report">
+                <i class='bx bxs-file-pdf'></i>
+                <span>Worksheet PDF</span>
+            </a> -->
+        </div>
+
+        <!-- Insights -->
+        <ul class="insights">
+            <li>
+                <!-- <i class='bx bx-calendar-check'></i> -->
+                <i class="bx bxs-user"></i>
+                <span class="info">
+                    <h3 class="text-center" id="teacherCount">2</h3>
+                    <p>Teachers</p>
+                </span>
+            </li>
+            <li onclick="showStudentList()">
+                <i class="bx bxs-group"></i>
+                <span class="info">
+                    <h3 class="text-center" id="studentCount">2</h3>
+                    <p>Students</p>
+                </span>
+            </li>
+            <li onclick="showNotesList()">
+                <i class="bx bx-book"></i>
+                <span class="info">
+                    <h3 class="text-center" id="classCount">1</h3>
+                    <p>Notes</p>
+                </span>
+            </li>
+            <li onclick="showNoticeList()">
+                <i class="bx bxs-bookmark"></i>
+                <span class="info">
+                    <h3 class="text-center" id="noticeCount">6</h3>
+                    <p>Notices</p>
+                </span>
+            </li>
+        </ul>
+        <!-- End of Insights -->
+
+        <div class="bottom-data">
+            <div class="orders">
+                <div class="header">
+                    <i class="bx bx-receipt"></i>
+                    <h3 id="text-heading">Latest Notices</h3>
+                    <i class="bx bx-filter"></i>
+                    <a href="https://demo-sms.codevocado.in/teacher_panel/noticeboard.php"> <i class="bx bx-plus icon-hover-circle" id="plusIconNotification" style="font-size: 30px;"></i></a>
+                </div>
+
+
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Sender</th>
+                        </tr>
+                    </thead>
+                    <tbody id="noticeTableBody"><tr>
+            <td class="user">
+               <img src="./School Management_files/yellow.png">
+                <p>test notice</p>
+            </td>
+            <td>20 Jun, 2025</td>
+            <td><span>Admin kumar</span></td>
+        </tr><tr>
+            <td class="user">
+               <img src="./School Management_files/yellow.png">
+                <p>test 2</p>
+            </td>
+            <td>20 Jun, 2025</td>
+            <td><span>Admin kumar</span></td>
+        </tr><tr>
+            <td class="user">
+               <img src="./School Management_files/green.png">
+                <p>test</p>
+            </td>
+            <td>20 Jun, 2025</td>
+            <td><span>Admin kumar</span></td>
+        </tr><tr>
+            <td class="user">
+               <img src="./School Management_files/green.png">
+                <p>Holiday notice</p>
+            </td>
+            <td>19 Jun, 2024</td>
+            <td><span>Admin kumar</span></td>
+        </tr><tr>
+            <td class="user">
+               <img src="./School Management_files/red.png">
+                <p>Title 2</p>
+            </td>
+            <td>19 Jun, 2024</td>
+            <td><span>Admin kumar</span></td>
+        </tr></tbody>
+                </table>
+            </div>
+
+            <!-- Reminders -->
+            <div class="reminders">
+                <div class="header">
+                    <i class="bx bx-note"></i>
+                    <h3>Remiders</h3>
+                    <!-- <i class='bx bx-filter'></i> -->
+                    <a data-bs-toggle="modal" data-bs-target="#reminder-modal"> <i style="font-size: 30px;" class="bx bx-plus icon-hover-circle"></i></a>
+                </div>
+                <ul class="task-list" id="all-reminders"><li class="completed">
+                                <div class="task-title">
+                                    <a class="status-btn" onclick="changeReminderStatus(68)">
+                                       <i class="bx bx-check-circle ok-done"></i>
+                                    </a>
+                                    <p>Post a homework daily</p>
+                                </div>
+                                 <a onclick="deleteReminder(68, 0)"><i class="bx bx-trash ml-2 text-danger"></i></a>
+                             </li><li class="not-completed">
+                                <div class="task-title">
+                                    <a class="status-btn" onclick="changeReminderStatus(69)">
+                                       <i class="bx bx-info-circle not-done"></i>
+                                    </a>
+                                    <p>principal meeting</p>
+                                </div>
+                                 <a onclick="deleteReminder(69, 1)"><i class="bx bx-trash ml-2 text-danger"></i></a>
+                             </li></ul>
+            </div>
+
+            <!-- End of Reminders-->
+
+            
+        </div>
+<br>
+    </main>
+</div>
+
+<script src="./School Management_files/dashboard.js.download"></script>
+
+
+    <script src="./School Management_files/logout.js.download"></script>
+    <script src="./School Management_files/jquery.min.js.download" type="text/javascript"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+   
+
+    <script src="./School Management_files/bootstrap.bundle.js.download"></script>
+    
+
+    <script src="./School Management_files/script.js.download"></script>
+   
+         
+    <script>
+     
+      function switchToTab(tabId) {
+        if (event) {
+        event.preventDefault();
+      }
+    
+        var tab = new bootstrap.Tab(document.getElementById(tabId));
+        tab.show();
+       
+      }
+    
+      
+     
+      function isTabAvailable(tabId) {
+        return document.getElementById(tabId) !== null;
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        var hash = window.location.hash;
+        if (hash) {
+          var tabId = hash.substring(1);
+          if (isTabAvailable(tabId)) {
+            switchToTab(tabId);
+          } else {
+            window.location.href = window.location.href.split('#')[0];
+          }
+        }
+      });
+     
+    </script>
+
+   
+   
+
+
+
+
+</body></html>

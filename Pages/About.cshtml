@@ -1,0 +1,44 @@
+@page "/about-us"
+@model AboutModel
+@{
+    ViewData["Title"] = "About - School Management";
+}
+
+@section Head {
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+}
+
+<main>
+    <div class="big-wrapper light">
+        <img src="images/shape.png" alt="Decorative Shape" class="shape" />
+
+        @await Html.PartialAsync("_CopyHeader")
+
+        <div class="container mt-5">
+            <div class="card border-0 shadow about-card">
+                <div class="card-body mt-5 mb-2 mx-3">
+                    <h3 class="card-title">
+                        <span class="text-primary icon-hover"><i class="fa-solid fa-school"></i></span>
+                        About Codevocado School Management System
+                    </h3>
+                    <p class="card-text fs-5 text-justify">
+                        Codevocado School Management System is a powerful, all-in-one solution designed to streamline and simplify administrative tasks for schools and educational institutions.
+                        Our platform integrates attendance tracking, fee management, timetable scheduling, communication tools, and academic progress monitoring — all in a user-friendly interface.
+                        With a focus on innovation and ease of use, we help schools transition into the digital age while improving efficiency, transparency, and collaboration among teachers, students, and parents.
+                    </p>
+                </div>
+                <div class="mb-4" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                    <img style="width: 400px;" src="https://via.placeholder.com/400x200?text=Codevocado+Logo" class="card-img-bottom" alt="Codevocado School Logo">
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_CopyFooter")
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

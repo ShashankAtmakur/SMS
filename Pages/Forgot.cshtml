@@ -1,0 +1,54 @@
+@page "/forgot-password"
+@model ForgotModel
+{
+    ViewData["Title"] = "Forgot Password";
+}
+
+@section Head {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="~/css/style.css" />
+  <link rel="stylesheet" href="~/css/login.css" />
+}
+
+<main>
+  <div class="auth-wrapper">
+    <div class="container py-5">
+      <div class="auth-card">
+        <div class="auth-left">
+          <div class="form-content">
+            <div class="login-form">
+              <div class="title">Forgot Password</div>
+
+              <form id="forgot-form" method="post">
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Enter your email" id="forgotEmail" required />
+                  </div>
+                  <div class="text"><a href="/login">back to login?</a></div>
+                  <div class="button input-box">
+                    <button type="submit" class="btn">Send Code</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="auth-right">
+          <div class="hero">
+            <img src="~/images/login-hero.jpg" alt="Login Hero" class="hero-img" />
+            <div class="hero-text">
+              <h2>SCHOOL MANAGEMENT SYSTEM</h2>
+              <p>Plan serve program</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+@section Scripts {
+  <script src="~/js/site.js"></script>
+}

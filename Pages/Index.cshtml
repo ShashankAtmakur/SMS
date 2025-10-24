@@ -1,0 +1,171 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "School Management";
+}
+
+@section Head {
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+}
+
+<main>
+    <div class="big-wrapper light">
+        <img src="images/shape.png" alt="Decorative Shape" class="shape" />
+
+        @await Html.PartialAsync("_CopyHeader")
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center get-started" style="height: 550px;">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div>
+                            <div class="big-title">
+                                <h1>Empower Education with</h1>
+                                <h1>Codevocado School Management</h1>
+                            </div>
+                            <p class="text">
+                                A comprehensive solution to streamline school operations, track student data, manage resources, and enhance communication seamlessly.
+                            </p>
+                            <div class="cta">
+                                <a href="/login" class="btn">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 image-box">
+                    <img src="images/children.png" alt="School Management System" class="person" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container card-container" id="feature-cards">
+            <div class="row g-5 show-cards">
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4 justify-content-center">
+                                <span class="text-primary icon-hover"><i class='bx bxs-book'></i></span>
+                                Features
+                            </h3>
+                        </div>
+                        <p>
+                            A robust academic career is typically essential for securing financial stability, with few exceptions. School provides opportunities to forge new friendships, with some classmates evolving into lifelong companions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4">
+                                <span class="text-primary icon-hover"><i class='bx bxs-star-half'></i></span>
+                                Achievement
+                            </h3>
+                        </div>
+                        <p>
+                            At the school awards, I received recognition for academic excellence, peer mentorship, environmental leadership, debate prowess, and musical talent.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4">
+                                <span class="text-primary icon-hover"><i class='bx bxs-cuboid'></i></span>
+                                Goals
+                            </h3>
+                        </div>
+                        <p>
+                            Creating an environment where curiosity, collaboration, and innovation thrive, nurturing resilient leaders of tomorrow.
+                        </p>
+                        <p> Encouraging a thirst for knowledge.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-5 show-cards mt-3">
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4 justify-content-center">
+                                <span class="text-primary icon-hover"><i class='bx bxs-bar-chart-alt-2'></i></span>
+                                Excellence
+                            </h3>
+                        </div>
+                        <p>
+                            Excellence is the culmination of dedication, perseverance, and unwavering commitment to continuous improvement, setting the standard for greatness in all endeavors.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4">
+                                <span class="text-primary icon-hover"><i class='bx bxs-user-badge'></i></span>
+                                Empowerment
+                            </h3>
+                        </div>
+                        <p>
+                            Empowerment is the key that unlocks the limitless potential within individuals, enabling them to embrace their strengths and conquer challenges with confidence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow p-3 h-100">
+                        <div class="py-3">
+                            <h3 class="fs-4">
+                                <span class="text-primary icon-hover"><i class='bx bxs-extension'></i></span>
+                                Creativity
+                            </h3>
+                        </div>
+                        <p>
+                            Creativity is the vibrant force that breathes life into ideas, illuminating new paths and shaping the world with boundless innovation and imagination.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <hr />
+        </div>
+
+        <div class="container mt-3 carousel-box">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/carousel1.jpg" class="d-block w-100" alt="School Infrastructure" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/carousel2.jpg" class="d-block w-100" alt="Classroom Management" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/carousel3.jpg" class="d-block w-100" alt="Student Activities" />
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_CopyFooter")
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
