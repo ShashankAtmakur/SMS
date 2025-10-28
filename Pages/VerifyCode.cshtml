@@ -1,0 +1,51 @@
+@page "/verify-code"
+@model VerifyCodeModel
+@{
+    ViewData["Title"] = "Verify Code";
+}
+
+@section Head {
+  <link rel="stylesheet" href="~/css/style.css" />
+  <link rel="stylesheet" href="~/css/login.css" />
+}
+
+<main>
+  <div class="auth-wrapper">
+    <div class="container py-5">
+      <div class="auth-card">
+        <div class="auth-left">
+          <div class="form-content">
+            <div class="login-form">
+              <div class="title">Enter verification code</div>
+
+              <form method="post">
+                <div class="input-boxes">
+                  <input type="hidden" asp-for="Email" />
+                  <div class="input-box">
+                    <i class="fas fa-key"></i>
+                    <input asp-for="Code" placeholder="Enter code" />
+                  </div>
+                  <div class="button input-box">
+                    <button type="submit" class="btn">Verify</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="auth-right">
+          <div class="hero">
+            <img src="~/images/login-hero.jpg" alt="Login Hero" class="hero-img" />
+            <div class="hero-text">
+              <h2>SCHOOL MANAGEMENT SYSTEM</h2>
+              <p>Plan serve program</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+@section Scripts { }
